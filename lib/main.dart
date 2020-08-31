@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => HistoryManager(history: _scan))
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Barcode Companion',
         theme: ThemeData(
           primarySwatch: Colors.red,
           primaryColor: Color(0xFFFD0101),
