@@ -494,7 +494,6 @@ class ImagePickerButton extends StatelessWidget {
       //await jpegtopng(filePath);
       compute(decodeScan, filePath).then((value) {
         Navigator.pop(context);
-        print(value);
         if (value == null) {
           showGeneralDialog(
               barrierColor: Color(0x01000000),
@@ -575,7 +574,6 @@ class ImagePickerButton extends StatelessWidget {
       builder: (context, _picprovider, child) {
         return GestureDetector(
           onTap: () {
-            print("aa");
             getImage(context);
           },
           child: Icon(

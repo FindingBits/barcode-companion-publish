@@ -194,6 +194,7 @@ class HistoryItemWindow extends StatelessWidget {
                             RichText(
                               text: TextSpan(
                                   style: TextStyle(
+                                    fontFamily:  "Roboto-Mono",
                                     fontSize: 12,
                                     color: Colors.black,
                                   ),
