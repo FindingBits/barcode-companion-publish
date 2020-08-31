@@ -83,7 +83,7 @@ flutter:
   # fonts:
     - family: Roboto
       -fonts:
-         - asset: assets\images\fonts\Roboto-Regular.ttf
+         - asset: assets\fonts\Roboto-Regular.ttf
     
       
   #   - family: Trajan Pro
