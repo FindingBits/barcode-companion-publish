@@ -676,7 +676,7 @@ class HelpButton extends StatelessWidget {
                                   children: [
                                     TextSpan(
                                       text:
-                                          " *  The management screen contains all the information that is read from the image and there is organized in dates for easy consulting and work optimization. Inside it you see all your scans (is empty until it has a scan), on the right you find a button that allows the possibility to add a image from the gallery to be decoded and of course at last you find the help button to open this window and assist you!",
+                                      " *  The “My Records” screen contains all the information that was read from the images and they’re organized by dates for easy consulting and work optimization. Inside it you can see all your scans (it’s empty until it has a scan), on the right you find a button that allows the possibility to add an image from the gallery to be decoded and of course, at last, you find the help button to open this window and assist you!",
                                     ),
                                   ]),
                             ),
@@ -692,7 +692,23 @@ class HelpButton extends StatelessWidget {
                                   children: [
                                     TextSpan(
                                       text:
-                                          "* The images are currently stored in:",
+                                      " *  When you click on the ... icon in a record, a popup will show information where you can click the decoded code and copy it to the clipboard."
+                                    ),
+                                  ]),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                  style: TextStyle(
+                                    fontSize: 17.5,
+                                    color: Colors.black,
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                      text:
+                                          " *  The images are currently stored in:",
                                     ),
                                   ]),
                             ),

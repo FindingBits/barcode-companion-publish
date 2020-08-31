@@ -6,6 +6,8 @@ import 'package:barcode_companion/Backend/scan.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:clipboard_manager/clipboard_manager.dart';
+import 'package:toast/toast.dart';
 
 /// History Item Window is the popup that appears when you select a registry
 /// Needs to be passed a data element, being this the Scan that needs to be shown
@@ -219,19 +221,26 @@ class HistoryItemWindow extends StatelessWidget {
                             SizedBox(
                               height: 5,
                             ),
-                            RichText(
-                              text: TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.black,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: data.getCode,
+                            GestureDetector(
+                              onTap: () {
+                                ClipboardManager.copyToClipBoard(data.getCode);
+                                Toast.show("Code copied to clipboard", context, duration: 3, gravity:  Toast.CENTER);
+
+                              },
+                              child: RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.black,
                                     ),
-                                  ]),
+                                    children: [
+                                      TextSpan(
+                                        text: data.getCode,
+                                      ),
+                                    ]),
+                              ),
                             ),
-                            
+
                             SizedBox(
                               height: 10,
                             ),
