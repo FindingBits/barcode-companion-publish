@@ -87,7 +87,6 @@ class CameraScreenState extends State<CameraScreen> {
       await controller.takePicture(path);
 
       compute(decodeScan, path).then((value) {
-        print(value);
         if (value == null) {
           Directory(path).deleteSync(recursive: true);
           pictureProvider.working = false;
@@ -103,7 +102,6 @@ class CameraScreenState extends State<CameraScreen> {
         }
       });
     } catch (e) {
-      print(e);
 
       Future.delayed(Duration(milliseconds: 1000)).then((_) {
         pictureProvider.working = false;

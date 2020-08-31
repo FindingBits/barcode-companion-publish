@@ -27,7 +27,6 @@ setdatabase() async {
 /// insertScan(new Scan(name: "Example", ), ...)
 /// ```
 Future<void> insertScan(Scan scan) async {
-  print(scan);
   await _database.insert(
     'scans',
     scan.toMap(),
