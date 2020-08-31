@@ -459,35 +459,103 @@ class ImagePickerButton extends StatelessWidget {
     if (pickedFile != null) {
       filePath = pickedFile.path;
 
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              content: Center(
-                child: CircularProgressIndicator(
-                  backgroundColor: Colors.red,
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                  strokeWidth: 4,
+      showGeneralDialog(
+          barrierColor: Color(0x01000000),
+          transitionBuilder: (context, a1, a2, widget) {
+            double scrWidth = MediaQuery.of(context).size.width * 2;
+            double scrHeight = MediaQuery.of(context).size.height * 2;
+            return Transform.scale(
+              scale: a1.value,
+              child: Opacity(
+                opacity: a1.value,
+                child: AlertDialog(
+                  backgroundColor: Colors.black.withOpacity(0),
+                  content: Container(
+                    width: scrWidth,
+                    height: scrHeight,
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        backgroundColor: Colors.red,
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                        strokeWidth: 4,
+                      ),
+                    ),
+                  ),
                 ),
               ),
-              backgroundColor: Colors.white.withOpacity(0),
             );
-          });
+          },
+          transitionDuration: Duration(milliseconds: 200),
+          barrierDismissible: true,
+          barrierLabel: '',
+          context: context,
+          pageBuilder: (context, animation1, animation2) {});
 
       //await jpegtopng(filePath);
       compute(decodeScan, filePath).then((value) {
         Navigator.pop(context);
         print(value);
         if (value == null) {
-          Toast.show(
-            "No barcode found in this image",
-            context,
-            duration: 3,
-            gravity: Toast.CENTER,
-            backgroundRadius: 5,
-            backgroundColor: Theme.of(context).primaryColor,
-            textColor: Colors.white,
-          );
+          showGeneralDialog(
+              barrierColor: Color(0x01000000),
+              transitionBuilder: (context, a1, a2, widget) {
+                return Transform.scale(
+                  scale: a1.value,
+                  child: Opacity(
+                    opacity: a1.value,
+                    child: AlertDialog(
+                      content: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    "Error! : ",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 25,
+                                    ),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () => Navigator.pop(context),
+                                  child: Icon(
+                                    Icons.close,
+                                    size: 45,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                  style: TextStyle(
+                                    fontSize: 17.5,
+                                    color: Colors.black,
+                                  ),
+                                  children: [
+                                    TextSpan(text: "No barcode found."),
+                                  ]),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
+              transitionDuration: Duration(milliseconds: 200),
+              barrierDismissible: true,
+              barrierLabel: '',
+              context: context,
+              pageBuilder: (context, animation1, animation2) {});
         } else {
           Navigator.of(context).push(
             PageRouteBuilder(
@@ -532,7 +600,7 @@ class HelpButton extends StatelessWidget {
       builder: (context, _picprovider, child) {
         return GestureDetector(
           onTap: () => showGeneralDialog(
-              barrierColor: Colors.black.withOpacity(0.5),
+              barrierColor: Color(0x01000000),
               transitionBuilder: (context, a1, a2, widget) {
                 final curvedValue =
                     Curves.easeInOutBack.transform(a1.value) - 1.0;
@@ -631,7 +699,7 @@ class HelpButton extends StatelessWidget {
                             RichText(
                               text: TextSpan(
                                   style: TextStyle(
-                                    fontSize: 10,
+                                    fontSize: 17.5,
                                     color: Colors.black,
                                   ),
                                   children: [

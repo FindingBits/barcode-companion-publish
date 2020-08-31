@@ -69,7 +69,7 @@ class InformationButton extends StatelessWidget {
         double scrHeight = MediaQuery.of(context).size.height;
         return GestureDetector(
           onTap: () => showGeneralDialog(
-              barrierColor: Colors.black.withOpacity(0.5),
+              barrierColor: Color(0x01000000),
               transitionBuilder: (context, a1, a2, widget) {
                 return Transform.scale(
                   scale: a1.value,

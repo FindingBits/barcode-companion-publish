@@ -52,6 +52,7 @@ class _DisplayFormState extends State<DisplayForm> {
     String itemPriority = widget.code[10];
     String serialNumber = widget.code.substring(11, 23);
     String trackID = widget.code[23];
+
     /// Saving the image to a permanent location
     File newImage = await File(widget.path).copy('$path/$name$now.png');
     Directory(widget.path).deleteSync(recursive: true);
@@ -110,13 +111,7 @@ class _DisplayFormState extends State<DisplayForm> {
                       hintText: date,
                     ),
                   ),
-                  new TextFormField(
-                    readOnly: true,
-                    decoration: const InputDecoration(
-                      icon: Icon(Icons.view_week),
-                      hintText: 'Scaned Code FDAT',
-                    ),
-                  ),
+
                   new TextFormField(
                     readOnly: true,
                     decoration: new InputDecoration(

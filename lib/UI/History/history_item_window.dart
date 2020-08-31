@@ -148,7 +148,7 @@ class HistoryItemWindow extends StatelessWidget {
                                     color: Colors.black,
                                   ),
                                   children: [
-                                    TextSpan(text: "FDAT Code: "),
+                                    TextSpan(text: "FDAT extracted code: "),
                                   ]),
                             ),
                             SizedBox(
@@ -169,7 +169,6 @@ class HistoryItemWindow extends StatelessWidget {
                             SizedBox(
                               height: 10,
                             ),
-
                             RichText(
                               text: TextSpan(
                                   style: TextStyle(
@@ -196,35 +195,180 @@ class HistoryItemWindow extends StatelessWidget {
                                     ),
                                   ]),
                             ),
+                            data.getDescription != ""
+                                ? SizedBox(
+                                    height: 10,
+                                  )
+                                : Container(),
+
+                            data.getDescription != ""
+                                ? RichText(
+                                    text: TextSpan(
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                        children: [
+                                          TextSpan(text: "Description: "),
+                                        ]),
+                                  )
+                                : Container(),
+                            data.getDescription != ""
+                                ? SizedBox(
+                                    height: 5,
+                                  )
+                                : Container(),
+                            data.getDescription != ""
+                                ? RichText(
+                                    text: TextSpan(
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.black,
+                                        ),
+                                        children: [
+                                          TextSpan(text: data.getDescription),
+                                        ]),
+                                  )
+                                : Container(),
                             SizedBox(
                               height: 10,
                             ),
-                            RichText(
-                              text: TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                  children: [
-                                    TextSpan(text: "Description: "),
-                                  ]),
+                            Row(
+                              children: [
+                                RichText(
+                                  text: TextSpan(
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      ),
+                                      children: [
+                                        TextSpan(text: "Issuer Code: "),
+                                      ]),
+                                ),
+                                RichText(
+                                  text: TextSpan(
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.black,
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                          text: data.issuerCode,
+                                        ),
+                                      ]),
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                RichText(
+                                  text: TextSpan(
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      ),
+                                      children: [
+                                        TextSpan(text: "Equipment ID: "),
+                                      ]),
+                                ),
+                                RichText(
+                                  text: TextSpan(
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.black,
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                          text: data.eqID,
+                                        ),
+                                      ]),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                RichText(
+                                  text: TextSpan(
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      ),
+                                      children: [
+                                        TextSpan(text: "Item Priority: "),
+                                      ]),
+                                ),
+                                RichText(
+                                  text: TextSpan(
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.black,
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                          text: data.itemPriority,
+                                        ),
+                                      ]),
+                                ),
+                                SizedBox(
+                                  width: 35,
+                                ),
+                                RichText(
+                                  text: TextSpan(
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      ),
+                                      children: [
+                                        TextSpan(text: "Track ID: "),
+                                      ]),
+                                ),
+                                RichText(
+                                  text: TextSpan(
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.black,
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                          text: data.trackID,
+                                        ),
+                                      ]),
+                                ),
+                              ],
                             ),
                             SizedBox(
-                              height: 5,
+                              height: 10,
                             ),
-                            RichText(
-                              text: TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.black,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                        text: data.getDescription != ""
-                                            ? data.getDescription
-                                            : "no description found"),
-                                  ]),
+                            Row(
+                              children: [
+                                RichText(
+                                  text: TextSpan(
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      ),
+                                      children: [
+                                        TextSpan(text: "Serial Number: "),
+                                      ]),
+                                ),
+                                RichText(
+                                  text: TextSpan(
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.black,
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                          text: data.serialNumber,
+                                        ),
+                                      ]),
+                                ),
+                              ],
                             ),
                             SizedBox(
                               height: 10,
@@ -250,9 +394,11 @@ class HistoryItemWindow extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(20))),
-                              child: File(data.getPath).existsSync() ? Image.file(
-                                File(data.getPath),
-                              ) : Container(),
+                              child: File(data.getPath).existsSync()
+                                  ? Image.file(
+                                      File(data.getPath),
+                                    )
+                                  : Container(),
                             )
                             //insert image
                           ],
