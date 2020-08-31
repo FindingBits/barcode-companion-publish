@@ -191,18 +191,26 @@ class HistoryItemWindow extends StatelessWidget {
                             SizedBox(
                               height: 5,
                             ),
-                            RichText(
-                              text: TextSpan(
-                                  style: TextStyle(
-                                    fontFamily:  "Roboto-Mono",
-                                    fontSize: 12,
-                                    color: Colors.black,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: data.fdatcode,
+                            GestureDetector(
+                              onTap: () {
+                                Clipboard.setData(
+                                    new ClipboardData(text: data.getFDAT));
+                                Toast.show("Code copied to clipboard", context,
+                                    duration: 3, gravity: Toast.CENTER);
+                              },
+                              child: RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                      fontFamily: "Roboto-Mono",
+                                      fontSize: 12,
+                                      color: Colors.black,
                                     ),
-                                  ]),
+                                    children: [
+                                      TextSpan(
+                                        text: data.fdatcode,
+                                      ),
+                                    ]),
+                              ),
                             ),
                             SizedBox(
                               height: 10,
@@ -223,9 +231,10 @@ class HistoryItemWindow extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: () {
-                                Clipboard.setData(new ClipboardData(text: data.getCode));
-                                Toast.show("Code copied to clipboard", context, duration: 3, gravity:  Toast.CENTER);
-
+                                Clipboard.setData(
+                                    new ClipboardData(text: data.getCode));
+                                Toast.show("Code copied to clipboard", context,
+                                    duration: 3, gravity: Toast.CENTER);
                               },
                               child: RichText(
                                 text: TextSpan(
@@ -256,17 +265,26 @@ class HistoryItemWindow extends StatelessWidget {
                                     TextSpan(text: "Issuer Code: "),
                                   ]),
                             ),
-                            RichText(
-                              text: TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.black,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: data.issuerCode,
+                            GestureDetector(
+                              onTap: () {
+                                Clipboard.setData(
+                                    new ClipboardData(text: data.issuerCode));
+                                Toast.show(
+                                    "Issuer code copied to clipboard", context,
+                                    duration: 3, gravity: Toast.CENTER);
+                              },
+                              child: RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black,
                                     ),
-                                  ]),
+                                    children: [
+                                      TextSpan(
+                                        text: data.issuerCode,
+                                      ),
+                                    ]),
+                              ),
                             ),
                             SizedBox(
                               width: 20,
@@ -282,17 +300,26 @@ class HistoryItemWindow extends StatelessWidget {
                                     TextSpan(text: "Equipment ID: "),
                                   ]),
                             ),
-                            RichText(
-                              text: TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.black,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: data.eqID,
+                            GestureDetector(
+                              onTap: () {
+                                Clipboard.setData(
+                                    new ClipboardData(text: data.eqID));
+                                Toast.show(
+                                    "Equipment ID copied to clipboard", context,
+                                    duration: 3, gravity: Toast.CENTER);
+                              },
+                              child: RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black,
                                     ),
-                                  ]),
+                                    children: [
+                                      TextSpan(
+                                        text: data.eqID,
+                                      ),
+                                    ]),
+                              ),
                             ),
 
                             RichText(
@@ -306,17 +333,26 @@ class HistoryItemWindow extends StatelessWidget {
                                     TextSpan(text: "Item Priority: "),
                                   ]),
                             ),
-                            RichText(
-                              text: TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.black,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: data.itemPriority,
+                            GestureDetector(
+                              onTap: () {
+                                Clipboard.setData(
+                                    new ClipboardData(text: data.getItemPriority));
+                                Toast.show("Item priority copied to clipboard",
+                                    context,
+                                    duration: 3, gravity: Toast.CENTER);
+                              },
+                              child: RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black,
                                     ),
-                                  ]),
+                                    children: [
+                                      TextSpan(
+                                        text: data.itemPriority,
+                                      ),
+                                    ]),
+                              ),
                             ),
                             SizedBox(
                               width: 35,
@@ -332,47 +368,65 @@ class HistoryItemWindow extends StatelessWidget {
                                     TextSpan(text: "Track ID: "),
                                   ]),
                             ),
-                            RichText(
-                              text: TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.black,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: data.trackID,
+                            GestureDetector(
+                              onTap: () {
+                                Clipboard.setData(
+                                    new ClipboardData(text: data.gettrackID));
+                                Toast.show(
+                                    "Track ID copied to clipboard", context,
+                                    duration: 3, gravity: Toast.CENTER);
+                              },
+                              child: RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black,
                                     ),
-                                  ]),
+                                    children: [
+                                      TextSpan(
+                                        text: data.trackID,
+                                      ),
+                                    ]),
+                              ),
                             ),
 
                             SizedBox(
                               height: 10,
                             ),
-                            
-                                RichText(
-                                  text: TextSpan(
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
+
+                            RichText(
+                              text: TextSpan(
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                  children: [
+                                    TextSpan(text: "Serial Number: "),
+                                  ]),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Clipboard.setData(
+                                    new ClipboardData(text: data.getserialNumber));
+                                Toast.show("Serial Number copied to clipboard",
+                                    context,
+                                    duration: 3, gravity: Toast.CENTER);
+                              },
+                              child: RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black,
+                                    ),
+                                    children: [
+                                      TextSpan(
+                                        text: data.serialNumber,
                                       ),
-                                      children: [
-                                        TextSpan(text: "Serial Number: "),
-                                      ]),
-                                ),
-                                RichText(
-                                  text: TextSpan(
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.black,
-                                      ),
-                                      children: [
-                                        TextSpan(
-                                          text: data.serialNumber,
-                                        ),
-                                      ]),
-                                ),
-                             
+                                    ]),
+                              ),
+                            ),
+
                             SizedBox(
                               height: 10,
                             ),
