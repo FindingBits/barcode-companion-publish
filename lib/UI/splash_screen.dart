@@ -50,9 +50,9 @@ class _SplashScreenCallerState extends State<SplashScreenCaller> {
 
     // This takes extra time for the function to finallyze, if necessary
     Future.delayed(
-      Duration(milliseconds: this.widget.extraTime),
-      () => widget.onInitializationComplete(),
-    );
+      Duration(milliseconds: this.widget.extraTime)).then((_){
+        widget.onInitializationComplete();
+      });
   }
 
   void initState() {
@@ -67,52 +67,7 @@ class _SplashScreenCallerState extends State<SplashScreenCaller> {
     ]);
     return MaterialApp(
       home: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(color: Colors.red),
-          child: Center(
-            child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  // Picture found in ctt-taikai challenge
-
-                  Container(
-                    child: Image.asset('assets/images/log.png'),
-                  ),
-
-                  Container(
-                    padding: EdgeInsets.all(16.0),
-                    child: Column(
-                      children: [
-                        Text(
-                          "Barcode Companion",
-                          style: TextStyle(
-                              fontFamily: "Roboto",
-                              fontSize: 45.0,
-                              color: Colors.white),
-                        ),
-                        Text(
-                          "by ZAANG",
-                          style: TextStyle(
-                            fontFamily: "Roboto",
-                            fontSize: 25.0,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  CircularProgressIndicator(
-                    backgroundColor: Colors.red,
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                    strokeWidth: 4,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+        body: SplashScreen(),
       ),
     );
   }
@@ -130,5 +85,63 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+    return Container(
+      height: height,
+      decoration: BoxDecoration(color: Colors.red),
+      child: Center(
+        child: Container(
+          height: 0.7*height,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Center(
+                child: Container(
+                  child: Column(
+                    children: [
+                      
+                      // Picture found in ctt-taikai challenge
+                      Container(
+                        width: 0.7 * width,
+                        child: Image.asset('assets/images/log.png'),
+                      ),
+                      
+                    ],
+                  ),
+                ),
+              ),
+              
+              Container(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Text(
+                      "Barcode Companion",
+                      style: TextStyle(
+                          fontFamily: "Roboto",
+                          fontSize: 45.0,
+                          color: Colors.white),
+                    ),
+                    Text(
+                      "by ZAANG",
+                      style: TextStyle(
+                        fontFamily: "Roboto",
+                        fontSize: 25.0,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+             SizedBox(height: 0.1*height,),
+              CircularProgressIndicator(
+                backgroundColor: Colors.red,
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                strokeWidth: 4,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
