@@ -48,7 +48,7 @@ To achieve the best scanning results, the app contains the Reed-Solomon algorith
 * All the functions on the cpp code regarding this subject have their own documentation for better understanding our logic.
 
 ### Image Recognition
-For image recognition we decided to use OpenCV, an open source and very powerfull library. For this particular usage we decided to go with c++ because it was easier to link with flutter with dart:ffi. A PC version  is within [this folder](https://github.com/FrancesinhaMan/barcode-companion/tree/master/source-decode-withDocs)
+For image recognition we decided to use OpenCV, an open source and very powerfull library. For this particular usage we decided to go with c++ because it was easier to link with flutter with dart:ffi. A PC version  is within [this folder](https://github.com/FrancesinhaMan/barcode-companion-publish/tree/master/source-decode-withDocs)
 
 The objective of this phase is to translate the image into a FDAT code (full, descender, ascender, tracker), to be later used with reed solomon to decode it into an s18c code.
 
