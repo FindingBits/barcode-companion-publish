@@ -348,8 +348,7 @@ class HistoryItemWindow extends StatelessWidget {
                             SizedBox(
                               height: 10,
                             ),
-                            Row(
-                              children: [
+                            
                                 RichText(
                                   text: TextSpan(
                                       style: TextStyle(
@@ -373,8 +372,7 @@ class HistoryItemWindow extends StatelessWidget {
                                         ),
                                       ]),
                                 ),
-                              ],
-                            ),
+                             
                             SizedBox(
                               height: 10,
                             ),
