@@ -444,12 +444,14 @@ class _HomeMenuState extends State<HomeMenu> {
   }
 }
 
-/// falta documentar @DoStini
+/// Image Picker Buttons lts you choose a photo from gallery and analyse it
 class ImagePickerButton extends StatelessWidget {
   ImagePickerButton({Key key, this.size});
 
   final picker = ImagePicker();
-
+/// Function to get the image from the gallery and starts computing the result
+/// If successfull, the information will be shown
+/// If the image cant be read, a popup will appear stating no code was found
   Future getImage(BuildContext context) async {
     var pickedFile = await picker.getImage(source: ImageSource.gallery);
     String filePath;
@@ -518,6 +520,10 @@ class ImagePickerButton extends StatelessWidget {
   }
 }
 
+
+
+/// Help Button
+/// This contains extra information on how to use the app, including the directory where the photos are saved
 class HelpButton extends StatelessWidget {
   HelpButton({Key key, this.size});
   final size;
