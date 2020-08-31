@@ -104,7 +104,11 @@ class CameraScreenState extends State<CameraScreen> {
       });
     } catch (e) {
       print(e);
-      pictureProvider.takePhoto();
+
+      Future.delayed(Duration(milliseconds: 1000)).then((_) {
+        pictureProvider.working = false;
+        pictureProvider.takePhoto();
+      });
     }
   }
 
