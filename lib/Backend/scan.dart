@@ -19,19 +19,19 @@ class Scan {
   final int id;
   final String name;
   final String date;
-  final String FDATcode;
   final String code;
   final String description;
   final String path;
+  String issuerCode = "";
+  String eqID;
+  String itemPriority;
+  String serialNumber;
+  String trackID;
 
   Scan(
-      {this.id,
-      this.name,
-      this.date,
-      this.FDATcode,
-      this.code,
-      this.description,
-      this.path});
+      {this.id, this.name, this.date, this.code, this.description, this.path, this.issuerCode, this.eqID, this.itemPriority, this.serialNumber, this.trackID}) {
+
+  }
 
   /// Converts the scan to a map
   Map<String, dynamic> toMap() {
@@ -39,23 +39,30 @@ class Scan {
       'id': id,
       'name': name,
       'date': date,
-      'FDATcode': FDATcode,
       'code': code,
       'description': description,
-      'path': path
+      'path': path,
+      'issuerCode': issuerCode,
+      'eqID': eqID,
+      'itemPriority': itemPriority,
+      'serialNumber': serialNumber,
+      'trackID': trackID,
     };
   }
 
   get getID => id;
   get getName => name;
   get getDate => date;
-  get getFDATcode => FDATcode;
   get getCode => code;
   get getDescription => description;
   get getPath => path;
+  get getIssuerCode => issuerCode;
+  get getItemPriority => itemPriority;
+  get getserialNumber => serialNumber;
+  get gettrackID => trackID;
 
   /// Converts the scan to a string to be added to the database (sqlite)
-  String toString() {
-    return 'Scan{id: $id, name: $name, date: $date, FDATcode:$FDATcode, code:$code,description:$description,path:$path}';
-  }
+  //String toString() {
+    //return 'Scan{id: $id, name: $name, date: $date, code:$code,description:$description,path:$path}, issuerCode:${issuerCode},';
+  //}
 }

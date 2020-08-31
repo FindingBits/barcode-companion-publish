@@ -162,7 +162,7 @@ class HistoryItemWindow extends StatelessWidget {
                                   ),
                                   children: [
                                     TextSpan(
-                                      text: data.getFDATcode,
+                                      text: data.getIssuerCode,
                                     ),
                                   ]),
                             ),

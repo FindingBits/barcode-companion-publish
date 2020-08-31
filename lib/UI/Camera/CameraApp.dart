@@ -104,6 +104,7 @@ class CameraScreenState extends State<CameraScreen> {
       });
     } catch (e) {
       print(e);
+      pictureProvider.takePhoto();
     }
   }
 

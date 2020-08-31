@@ -14,17 +14,18 @@ setdatabase() async {
     join(await getDatabasesPath(), 'scans_database.db'),
     onCreate: (db, version) {
       return db.execute(
-        "CREATE TABLE scans(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, date TEXT, FDATcode TEXT, code TEXT, description TEXT, path TEXT)",
+        "CREATE TABLE scans(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, date TEXT, code TEXT, description TEXT, path TEXT, issuerCode TEXT, eqID TEXT, itemPriority TEXT, serialNumber TEXT, trackID TEXT)",
       );
     },
     version: 1,
   );
 }
 
+
 /// Function to insert a scan into the database
 /// Example:
 /// ```dart
-/// insertScan(new Scan(name: "Example", FDATcode: "TAFAADDT"), ...)
+/// insertScan(new Scan(name: "Example", ), ...)
 /// ```
 Future<void> insertScan(Scan scan) async {
   print(scan);
@@ -49,10 +50,14 @@ Future<List<Scan>> scans() async {
       id: maps[i]['id'],
       name: maps[i]['name'],
       date: maps[i]['date'],
-      FDATcode: maps[i]['FDATcode'],
       code: maps[i]['code'],
       description: maps[i]['description'],
       path: maps[i]['path'],
+      issuerCode: maps[i]['issuerCode'],
+      eqID: maps[i]['eqID'],
+      itemPriority: maps[i]['itemPriority'],
+      serialNumber: maps[i]['serialNumber'],
+      trackID: maps[i]['trackID'],
     );
   });
 }

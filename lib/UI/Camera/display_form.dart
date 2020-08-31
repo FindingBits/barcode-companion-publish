@@ -47,17 +47,25 @@ class _DisplayFormState extends State<DisplayForm> {
     String path = directory.path;
     DateTime now = DateTime.now();
     String name = nameController.text;
-
+    String issuerCode = widget.code.substring(4, 7);
+    String eqID = widget.code.substring(7, 10);
+    String itemPriority = widget.code[10];
+    String serialNumber = widget.code.substring(11, 23);
+    String trackID = widget.code[23];
     /// Saving the image to a permanent location
     File newImage = await File(widget.path).copy('$path/$name$now.png');
     Directory(widget.path).deleteSync(recursive: true);
     var scan = Scan(
       name: nameController.text,
       date: date,
-      FDATcode: "FDATASDAWEDSFASDD",
       code: widget.code,
       description: descriptionController.text,
       path: newImage.path,
+      issuerCode: issuerCode,
+      eqID: eqID,
+      itemPriority: itemPriority,
+      serialNumber: serialNumber,
+      trackID: trackID,
     );
     _historyManager.addItem(scan);
     pictureProvider.working = false;
