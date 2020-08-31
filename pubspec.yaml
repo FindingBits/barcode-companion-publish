@@ -44,10 +44,16 @@ dependencies:
   image_picker: ^0.6.7+7
   toast: ^0.1.5  
   image: ^2.1.14
+  flutter_launcher_icons: ^0.7.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+    image_path: "assets/images/launcher_icon.png"
+    android: true
+    ios: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -68,6 +74,7 @@ flutter:
     - assets/images/back.png
     - assets/images/logo.png
     - assets/images/log.png
+    - assets/images/launcher_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -85,7 +92,11 @@ flutter:
 
     - family: Roboto
       -fonts:
+<<<<<<< HEAD
           - asset: assets\fonts\Roboto-Regular.ttf
+=======
+         - asset: assets\\fonts\\Roboto-Regular.ttf
+>>>>>>> 0b88b2b9556bf12fa07266aef90f66a3deb30cb5
     
       
   #   - family: Trajan Pro
@@ -96,3 +107,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  
