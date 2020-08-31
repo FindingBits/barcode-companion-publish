@@ -25,7 +25,7 @@ The App to read Barcodes from the S18C standard
 ## Project Documentation
 
 ### - Source Decode and Documentation
-* [Source Code with Docs](https://github.com/FrancesinhaMan/barcode-companion/tree/master/source-decode-withDocs) (differs a bit from mobile implementation of cpp but its designed to be run from the computer for better understanding our logic).
+* [Source Code with Docs](https://github.com/FrancesinhaMan/barcode-companion-publish/tree/master/source-decode-withDocs) (differs a bit from mobile implementation of cpp but its designed to be run from the computer for better understanding our logic).
 
 ### - UPU Standards
 * [All sections](https://www.upu.int/en/Postal-Solutions/Programmes-Services/Standards#scroll-nav__6)
