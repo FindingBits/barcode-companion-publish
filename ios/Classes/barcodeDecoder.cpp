@@ -72,6 +72,7 @@ const GLF6 alpha = 2;
 const int initpwr = 1;
 const GLF6 field = 64;
 const map<const string, int> barsDecimal{ {"FFF", 0}, {"FFA", 1}, {"FFD", 2}, {"FFT", 3}, {"FAF", 4}, {"FAA", 5}, {"FAD", 6}, {"FAT", 7}, {"FDF", 8}, {"FDA", 9}, {"FDD", 10}, {"FDT", 11}, {"FTF", 12}, {"FTA", 13}, {"FTD", 14}, {"FTT", 15}, {"AFF", 16}, {"AFA", 17}, {"AFD", 18}, {"AFT", 19}, {"AAF", 20}, {"AAA", 21}, {"AAD", 22}, {"AAT", 23}, {"ADF", 24}, {"ADA", 25}, {"ADD", 26}, {"ADT", 27}, {"ATF", 28}, {"ATA", 29}, {"ATD", 30}, {"ATT", 31}, {"DFF", 32}, {"DFA", 33}, {"DFD", 34}, {"DFT", 35}, {"DAF", 36}, {"DAA", 37}, {"DAD", 38}, {"DAT", 39}, {"DDF", 40}, {"DDA", 41}, {"DDD", 42}, {"DDT", 43}, {"DTF", 44}, {"DTA", 45}, {"DTD", 46}, {"DTT", 47}, {"TFF", 48}, {"TFA", 49}, {"TFD", 50}, {"TFT", 51}, {"TAF", 52}, {"TAA", 53}, {"TAD", 54}, {"TAT", 55}, {"TDF", 56}, {"TDA", 57}, {"TDD", 58}, {"TDT", 59}, {"TTF", 60}, {"TTA", 61}, {"TTD", 62}, {"TTT", 63} };
+const vector<string> decimalBars{"FFF", "FFA", "FFD", "FFT", "FAF", "FAA", "FAD", "FAT", "FDF", "FDA", "FDD","FDT", "FTF", "FTA", "FTD", "FTT", "AFF", "AFA", "AFD", "AFT", "AAF", "AAA", "AAD", "AAT", "ADF", "ADA", "ADD", "ADT", "ATF", "ATA", "ATD", "ATT", "DFF", "DFA", "DFD", "DFT", "DAF", "DAA", "DAD", "DAT", "DDF", "DDA", "DDD", "DDT", "DTF", "DTA", "DTD", "DTT", "TFF", "TFA", "TFD", "TFT", "TAF", "TAA", "TAD", "TAT", "TDF", "TDA", "TDD", "TDT", "TTF", "TTA", "TTD", "TTT"};
 const map<int, const char> decimalLetter{ {0, 'Z'}, {1, 'Y'}, {2, 'X'}, {3, 'W'}, {4, 'V'}, {5, 'U'}, {6, 'T'}, {7, 'S'}, {8, 'R'}, {9, 'Q'}, {10, 'P'}, {11, 'O'}, {12, 'N'}, {13, 'M'}, {14, 'L'}, {15, 'K'}, {16, 'J'}, {17, 'I'}, {18, 'H'}, {19, 'G'}, {20, 'F'}, {21, 'E'}, {22, 'D'}, {23, 'C'}, {24, 'B'}, {25, 'A'}, {26, '9'}, {27, '8'}, {28, '7'}, {29, '6'}, {30, '5'}, {31, '4'}, {32, '3'}, {33, '2'}, {34, '1'}, {35, '0'} };
 const map<const string, const string> priorityLetter{ {"00", "N"}, {"01", "L"}, {"10", "H"}, {"11", "U"} };
 const map<const string, const string> trackingLetter{ {"00", "T"}, {"01", "F"}, {"10", "D"}, {"11", "N"} };
@@ -638,6 +639,25 @@ void reverseErasures(GLF6Polynomial& erasures, size_t messageSize) {
 	}
 }
 
+string polynomialToBars(GLF6Polynomial polynomial) {
+	stringstream resultStream;
+
+	for (size_t idx = 0; idx < 10; idx++)
+	{
+		resultStream << decimalBars.at(polynomial[idx]);
+	}
+	for (size_t idx = 13; idx < 25; idx++)
+	{
+		resultStream << decimalBars.at(polynomial[idx]);
+	}
+	for (size_t idx = 10; idx < 13; idx++)
+	{
+		resultStream << decimalBars.at(polynomial[idx]);
+	}
+
+	return resultStream.str();
+}
+
 // ---------------------- MAIN BEGIN ----------------------
 // starts the whole magic regarding treating the code and making it feel at home
 extern "C" __attribute__((visibility("default"))) __attribute__((used))
@@ -696,6 +716,8 @@ struct OutputFormat* barcodeDecoderF(char* barcodePointer)
 			}
 
 		}
+
+		barcode = polynomialToBars(message);
 
 		// remove left and right sync and reed-solomon code
 		// --- LeftSync e RightSync | leftsync 22 in binary | rightsync 38 binary
@@ -782,6 +804,9 @@ struct OutputFormat* barcodeDecoderF(char* barcodePointer)
 		result->output = new char[ex.getMessage().size() + 1];
 		strcpy((*result).output, ex.getMessage().c_str());
 	}
+
+	result->barcode = new char[76];
+	strcpy((*result).barcode, barcode.c_str());
 
 	return result;
 }

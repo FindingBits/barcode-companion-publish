@@ -12,6 +12,7 @@ struct OutputFormat
 {
 	int errnum;
 	char* output;
+	char* barcode;
 };
 
 extern "C"

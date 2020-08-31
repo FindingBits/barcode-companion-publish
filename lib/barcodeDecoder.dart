@@ -7,11 +7,13 @@ class OutputFormat extends Struct {
   int errnum;
 
   Pointer<Utf8> output;
+  Pointer<Utf8> barcode;
 
-  factory OutputFormat.allocate(int errnum, Pointer<Utf8> output) =>
+  factory OutputFormat.allocate(int errnum, Pointer<Utf8> output, Pointer<Utf8> barcode) =>
       allocate<OutputFormat>().ref
         ..errnum = errnum
-        ..output = output;
+        ..output = output
+        ..barcode = barcode;
 }
 
 final DynamicLibrary barcodeDecoderLib = Platform.isAndroid

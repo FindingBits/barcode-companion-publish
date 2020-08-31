@@ -49,8 +49,8 @@ decodeScan(String path) async {
   var decoded = decodedPointer.ref;
   //var message = decoded.errnum;
   if (decoded.errnum == 0){
-var message = Utf8.fromUtf8(decoded.output);
-  return message;
+    var message = Utf8.fromUtf8(decoded.output) + " " + Utf8.fromUtf8(decoded.barcode);
+    return message;
   }else{
     return null;
   }

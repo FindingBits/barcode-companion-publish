@@ -52,7 +52,7 @@ class Scan {
       'code': code,
       'description': description,
       'path': path,
-      'fdatcode': fdatcode,
+      'fdat': fdatcode,
       'issuerCode': issuerCode,
       'eqID': eqID,
       'itemPriority': itemPriority,

@@ -52,7 +52,7 @@ Future<List<Scan>> scans() async {
       code: maps[i]['code'],
       description: maps[i]['description'],
       path: maps[i]['path'],
-      fdatcode: maps[i]['fdatcode'],
+      fdatcode: maps[i]['fdat'],
       issuerCode: maps[i]['issuerCode'],
       eqID: maps[i]['eqID'],
       itemPriority: maps[i]['itemPriority'],

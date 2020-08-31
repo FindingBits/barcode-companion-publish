@@ -44,14 +44,17 @@ class _DisplayFormState extends State<DisplayForm> {
     } else {
       directory = await getApplicationDocumentsDirectory();
     }
+    List<String> codes = widget.code.split(" ");
+    String idTAG = codes[0], barcode = codes[1];
+
     String path = directory.path;
     DateTime now = DateTime.now();
     String name = nameController.text;
-    String issuerCode = widget.code.substring(4, 7);
-    String eqID = widget.code.substring(7, 10);
-    String itemPriority = widget.code[10];
-    String serialNumber = widget.code.substring(11, 23);
-    String trackID = widget.code[23];
+    String issuerCode = idTAG.substring(4, 7);
+    String eqID = idTAG.substring(7, 10);
+    String itemPriority = idTAG[10];
+    String serialNumber = idTAG.substring(11, 23);
+    String trackID = idTAG[23];
 
     /// Saving the image to a permanent location
     File newImage = await File(widget.path).copy('$path/$name$now.png');
@@ -59,10 +62,10 @@ class _DisplayFormState extends State<DisplayForm> {
     var scan = Scan(
       name: nameController.text,
       date: date,
-      code: widget.code,
+      code: idTAG,
       description: descriptionController.text,
       path: newImage.path,
-      fdatcode: " ----- ",
+      fdatcode: barcode,
       issuerCode: issuerCode,
       eqID: eqID,
       itemPriority: itemPriority,

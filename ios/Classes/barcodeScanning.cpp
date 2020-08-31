@@ -435,6 +435,8 @@ extern "C" __attribute__((visibility("default"))) __attribute__((used)) struct O
 	std::string errorMessage = "No barcode found.";
 	output->output = new char[errorMessage.size() + 1];
 	strcpy(output->output, errorMessage.c_str());
+	output->barcode = new char[3];
+	strcpy((*output).barcode, "NA");
 
 	for (auto &poss : possibleImgs)
 	{

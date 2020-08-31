@@ -52,6 +52,8 @@ dev_dependencies:
 
 flutter_icons:
     image_path: "assets/images/launcher_icon.png"
+    adaptive_icon_foreground: "assets/images/launcher_icon.png"
+    adaptive_icon_background: "#000000"
     android: true
     ios: true
 
@@ -92,11 +94,7 @@ flutter:
 
     - family: Roboto
       -fonts:
-<<<<<<< HEAD
           - asset: assets\fonts\Roboto-Regular.ttf
-=======
-         - asset: assets\\fonts\\Roboto-Regular.ttf
->>>>>>> 0b88b2b9556bf12fa07266aef90f66a3deb30cb5
     
       
   #   - family: Trajan Pro
