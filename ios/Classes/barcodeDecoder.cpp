@@ -541,11 +541,10 @@ GLF6Polynomial rsCorrectErrata(GLF6Polynomial& message, GLF6Polynomial syndromes
 		{
 			errorLocatorPrime = galoisMult(errorLocatorPrime, (*coefficient));
 		}
-
+		
 		// Compute y (evaluation of the errata evaluator polynomial
 		GLF6 y = galoisPolyEval(errorEvaluator, errorLocationCoefInv); // numerator of the Forney algorithm
 		// y = galoisMult(galoisPow(errorLocationCoef, 1 - initpwr), y); --- same as y * 1 with initpwr = 1
-
 		if (errorLocatorPrime == 0)
 		{
 			throw BarcodeDecodingException("Attempted to divide by zero (errorLocatorPrime)", 1);
