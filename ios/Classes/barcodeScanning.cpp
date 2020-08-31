@@ -337,7 +337,7 @@ std::string analyse(cv::Mat &grayscale)
 		BEGIN_POS = *std::min_element(POSITION_MAP.begin(), POSITION_MAP.end());
 		MID_POS = BEGIN_POS + 0.5 * MAX_HEIGHT - 0.5 * MIN_HEIGHT;
 
-		float THRESHHOLD = 0.2;
+		float THRESHHOLD = 0.12;
 		float CONFIDENCE = THRESHHOLD * MAX_HEIGHT;
 
 		for (int i = 0; i < finalCnts.size(); i++)
