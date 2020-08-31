@@ -4,10 +4,9 @@ import 'package:barcode_companion/Backend/history_manager.dart';
 import 'package:barcode_companion/UI/Provider/PictureProvider.dart';
 import 'package:barcode_companion/Backend/scan.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:clipboard_manager/clipboard_manager.dart';
 import 'package:toast/toast.dart';
+import 'package:flutter/services.dart';
 
 /// History Item Window is the popup that appears when you select a registry
 /// Needs to be passed a data element, being this the Scan that needs to be shown
@@ -223,7 +222,7 @@ class HistoryItemWindow extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: () {
-                                ClipboardManager.copyToClipBoard(data.getCode);
+                                Clipboard.setData(new ClipboardData(text: data.getCode));
                                 Toast.show("Code copied to clipboard", context, duration: 3, gravity:  Toast.CENTER);
 
                               },

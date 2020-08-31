@@ -45,7 +45,6 @@ dependencies:
   toast: ^0.1.5  
   image: ^2.1.14
   flutter_launcher_icons: ^0.7.5
-  clipboard_manager: ^0.0.1
 
 dev_dependencies:
   flutter_test:
