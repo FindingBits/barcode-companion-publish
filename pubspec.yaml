@@ -91,10 +91,15 @@ flutter:
   # example:
   # fonts:
 
-
+  fonts:
     - family: Roboto
-      -fonts:
-          - asset: assets\fonts\Roboto-Regular.ttf
+      fonts:
+          - asset: assets/fonts/Roboto-Regular.ttf
+          
+
+    - family: Roboto-Mono
+      fonts:
+        - asset: assets/fonts/Roboto-Mono.ttf
     
       
   #   - family: Trajan Pro
