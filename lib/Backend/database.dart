@@ -44,7 +44,7 @@ Future<List<Scan>> scans() async {
   //final database = getdatabase();
   //final Database db = await database;
   final List<Map<String, dynamic>> maps = await _database.query('scans');
-  return List.generate(maps.length, (i) {
+  List<Scan> _list = List.generate(maps.length, (i) {
     return Scan(
       id: maps[i]['id'],
       name: maps[i]['name'],
@@ -60,6 +60,7 @@ Future<List<Scan>> scans() async {
       trackID: maps[i]['trackID'],
     );
   });
+  return _list.reversed.toList();
 }
 
 Future<void> updateScan(Scan scan) async {

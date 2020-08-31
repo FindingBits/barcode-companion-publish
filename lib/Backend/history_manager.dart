@@ -38,7 +38,6 @@ class HistoryManager with ChangeNotifier {
     print(data);
     insertScan(data);
     history = await scans();
-    history = history.reversed.toList();
     _length = history.length;
 
     /// This specific function will alert the ui that it needs to be rebuilt, if they have Consumer<HistoryManager> on top of them
@@ -49,8 +48,6 @@ class HistoryManager with ChangeNotifier {
   void removeItem(Scan data) async {
     deleteScan(data.getID);
     history = await scans();
-    history = history.reversed.toList();
-    _length = history.length;
     _length = history.length;
 
     Directory dir = Directory(data.getPath);
