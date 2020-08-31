@@ -1,0 +1,19 @@
+//
+//  Runner.pch
+//  Runner
+//
+//  Created by Nuno on 26/08/2020.
+//
+
+#ifndef Runner_pch
+#define Runner_pch
+
+#ifdef __cplusplus
+#import <opencv2/opencv.hpp>
+#include "barcodeDecoder.hpp"
+#endif
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* Runner_pch */

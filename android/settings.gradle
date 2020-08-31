@@ -1,0 +1,23 @@
+// Copyright 2014 The Flutter Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+include ':app'
+
+def localPropertiesFile = new File(rootProject.projectDir, "local.properties")
+def properties = new Properties()
+
+assert localPropertiesFile.exists()
+localPropertiesFile.withReader("UTF-8") { reader -> properties.load(reader) }
+
+def flutterSdkPath = properties.getProperty("flutter.sdk")
+assert flutterSdkPath != null, "flutter.sdk not set in local.properties"
+apply from: "$flutterSdkPath/packages/flutter_tools/gradle/app_plugin_loader.gradle"
+
+//def opencvsdk='D:\\SDK\\OpenCV-android-sdk'
+//def opencvsdk='/home/andremoreira9/Documents/Projects/Flutter/opencv/opencv_android'
+def opencvsdk = "${rootDir}/../ios/Flutter/OpenCV-android-sdk"
+//   // You can put declaration above into gradle.properties file instead (including file in HOME directory),
+//   // but without 'def' and apostrophe symbols ('): opencvsdk=<path_to_opencv_android_sdk_rootdir>
+include ':opencv'
+project(':opencv').projectDir = new File("$opencvsdk/sdk")
