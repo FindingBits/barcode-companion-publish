@@ -35,7 +35,6 @@ class HistoryManager with ChangeNotifier {
 
   /// Function to save a scan
   void addItem(Scan data) async {
-    print(data);
     insertScan(data);
     history = await scans();
     _length = history.length;
@@ -55,7 +54,6 @@ class HistoryManager with ChangeNotifier {
     try {
       dir.deleteSync(recursive: true);
     } catch (ex) {
-      print(ex);
     }
 
     notifyListeners();
