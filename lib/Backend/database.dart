@@ -14,13 +14,12 @@ setdatabase() async {
     join(await getDatabasesPath(), 'scans_database.db'),
     onCreate: (db, version) {
       return db.execute(
-        "CREATE TABLE scans(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, date TEXT, code TEXT, description TEXT, path TEXT, issuerCode TEXT, eqID TEXT, itemPriority TEXT, serialNumber TEXT, trackID TEXT)",
+        "CREATE TABLE scans(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, date TEXT, code TEXT, description TEXT, path TEXT, fdat TEXT, issuerCode TEXT, eqID TEXT, itemPriority TEXT, serialNumber TEXT, trackID TEXT)",
       );
     },
     version: 1,
   );
 }
-
 
 /// Function to insert a scan into the database
 /// Example:
@@ -53,6 +52,7 @@ Future<List<Scan>> scans() async {
       code: maps[i]['code'],
       description: maps[i]['description'],
       path: maps[i]['path'],
+      fdatcode: maps[i]['fdatcode'],
       issuerCode: maps[i]['issuerCode'],
       eqID: maps[i]['eqID'],
       itemPriority: maps[i]['itemPriority'],

@@ -49,10 +49,9 @@ class _SplashScreenCallerState extends State<SplashScreenCaller> {
     await setDir();
 
     // This takes extra time for the function to finallyze, if necessary
-    Future.delayed(
-      Duration(milliseconds: this.widget.extraTime)).then((_){
-        widget.onInitializationComplete();
-      });
+    Future.delayed(Duration(milliseconds: this.widget.extraTime)).then((_) {
+      widget.onInitializationComplete();
+    });
   }
 
   void initState() {
@@ -90,7 +89,7 @@ class SplashScreen extends StatelessWidget {
       decoration: BoxDecoration(color: Colors.red),
       child: Center(
         child: Container(
-          height: 0.7*height,
+          height: 0.7 * height,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
@@ -98,18 +97,15 @@ class SplashScreen extends StatelessWidget {
                 child: Container(
                   child: Column(
                     children: [
-                      
                       // Picture found in ctt-taikai challenge
                       Container(
                         width: 0.7 * width,
                         child: Image.asset('assets/images/log.png'),
                       ),
-                      
                     ],
                   ),
                 ),
               ),
-              
               Container(
                 padding: EdgeInsets.all(16.0),
                 child: Column(
@@ -118,7 +114,7 @@ class SplashScreen extends StatelessWidget {
                       "Barcode Companion",
                       style: TextStyle(
                           fontFamily: "Roboto",
-                          fontSize: 45.0,
+                          fontSize: 44.0,
                           color: Colors.white),
                     ),
                     Text(
@@ -132,7 +128,9 @@ class SplashScreen extends StatelessWidget {
                   ],
                 ),
               ),
-             SizedBox(height: 0.1*height,),
+              SizedBox(
+                height: 0.1 * height,
+              ),
               CircularProgressIndicator(
                 backgroundColor: Colors.red,
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.white),

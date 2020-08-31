@@ -62,6 +62,7 @@ class _DisplayFormState extends State<DisplayForm> {
       code: widget.code,
       description: descriptionController.text,
       path: newImage.path,
+      fdatcode: " ----- ",
       issuerCode: issuerCode,
       eqID: eqID,
       itemPriority: itemPriority,

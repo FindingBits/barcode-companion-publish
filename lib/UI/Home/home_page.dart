@@ -512,7 +512,7 @@ class ImagePickerButton extends StatelessWidget {
                               children: [
                                 Flexible(
                                   child: Text(
-                                    "Error! : ",
+                                    "Error! ",
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 25,

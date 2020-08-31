@@ -22,6 +22,7 @@ class Scan {
   final String code;
   final String description;
   final String path;
+  String fdatcode;
   String issuerCode = "";
   String eqID;
   String itemPriority;
@@ -29,9 +30,18 @@ class Scan {
   String trackID;
 
   Scan(
-      {this.id, this.name, this.date, this.code, this.description, this.path, this.issuerCode, this.eqID, this.itemPriority, this.serialNumber, this.trackID}) {
-
-  }
+      {this.id,
+      this.name,
+      this.date,
+      this.code,
+      this.description,
+      this.path,
+      this.fdatcode,
+      this.issuerCode,
+      this.eqID,
+      this.itemPriority,
+      this.serialNumber,
+      this.trackID});
 
   /// Converts the scan to a map
   Map<String, dynamic> toMap() {
@@ -42,6 +52,7 @@ class Scan {
       'code': code,
       'description': description,
       'path': path,
+      'fdatcode': fdatcode,
       'issuerCode': issuerCode,
       'eqID': eqID,
       'itemPriority': itemPriority,
@@ -56,6 +67,7 @@ class Scan {
   get getCode => code;
   get getDescription => description;
   get getPath => path;
+  get getFDAT => fdatcode;
   get getIssuerCode => issuerCode;
   get getItemPriority => itemPriority;
   get getserialNumber => serialNumber;
@@ -63,6 +75,6 @@ class Scan {
 
   /// Converts the scan to a string to be added to the database (sqlite)
   //String toString() {
-    //return 'Scan{id: $id, name: $name, date: $date, code:$code,description:$description,path:$path}, issuerCode:${issuerCode},';
+  //return 'Scan{id: $id, name: $name, date: $date, code:$code,description:$description,path:$path}, issuerCode:${issuerCode},';
   //}
 }
