@@ -1,6 +1,8 @@
 # barcode-companion
 The App to read Barcodes from the S18C standard
 
+Checkout our  [youtube video](https://youtu.be/b_dzuvPNESg) showcasing the app
+
 ## Setting up project
 * Download and install [Flutter for your OS](https://flutter.dev/docs/get-started/install)
 * Clone the repository
